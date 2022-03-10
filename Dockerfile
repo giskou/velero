@@ -1,5 +1,9 @@
+ARG VELERO_VERSION
+
 FROM ioanniss/restic:latest AS restic
 
-FROM velero/velero:v1.8.0
+ARG VELERO_VERSION
+
+FROM velero/velero:${VELERO_VERSION}
 
 COPY --from=restic /usr/bin/restic /usr/bin/restic
