@@ -34,9 +34,9 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v2
-        build-args: |
-          VELERO_VERSION=${{ steps.tag.outputs.tag }}
         with:
           context: .
           push: true
           tags: ioanniss/velero:${{ steps.tag.outputs.tag }}
+          build-args: |
+            VELERO_VERSION=${{ steps.tag.outputs.tag }}
